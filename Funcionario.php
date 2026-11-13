@@ -1,17 +1,12 @@
 <?php
 
-require_once './FuncionarioInterface.php';
+namespace S4_R1_AT1;
 
-abstract class Funcionario implements FuncionarioInterface 
-{
+abstract class Funcionario {
+
     protected string $nome;
 
-    public function __construct(string $nome) 
-    {
+    public function __construct(string $nome) {
         $this->nome = $nome;
     }
-
-    // Os métodos contratar() e demitir() continuam obrigatórios para os filhos
-    abstract public function contratar(): string;
-    abstract public function demitir(): string;
 }

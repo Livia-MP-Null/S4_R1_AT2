@@ -1,16 +1,17 @@
 <?php
 
-require_once './Funcionario.php';
+namespace S4_R1_AT1;
 
-class FuncionarioCLT extends Funcionario
-{
-    public function contratar(): string 
-    {
+require_once __DIR__ . '/Funcionario.php';
+require_once __DIR__ . '/FuncionarioInterface.php';
+
+class FuncionarioCLT extends Funcionario implements FuncionarioInterface {
+
+    public function contratar(): string {
         return "Funcionário CLT {$this->nome} contratado com carteira assinada.\n";
     }
 
-    public function demitir(): string 
-    {
+    public function demitir(): string {
         return "Funcionário CLT {$this->nome} demitido.\n";
     }
 }
