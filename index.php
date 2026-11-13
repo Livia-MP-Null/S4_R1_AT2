@@ -14,16 +14,16 @@ $funcionarioPJ = new FuncionarioPJ("Tech Solutions LTDA", 5000.00);
 $funcionarios = [$funcionarioCLT, $funcionarioPJ];
 
 foreach ($funcionarios as $funcionario) {
-    echo $repository->contratar($funcionario) . "<br>";
+    echo $repository->contratar($funcionario) . "\n";
 
-    echo $repository->exibirDados($funcionario) . "<br>";
+    echo $repository->exibirDados($funcionario) . "\n";
 
     echo "Pagamento: R$ " . number_format(
         $repository->calcularPagamento($funcionario),
         2,
         ',',
         '.'
-    ) . "<br>";
+    ) . "\n";
 
-    echo $repository->demitir($funcionario) . "<br><br>";
+    echo $repository->demitir($funcionario) . "\n";
 }
