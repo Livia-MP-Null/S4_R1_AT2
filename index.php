@@ -6,13 +6,24 @@ require_once __DIR__ . '/FuncionarioCLT.php';
 require_once __DIR__ . '/FuncionarioPJ.php';
 require_once __DIR__ . '/FuncionarioRepository.php';
 
-$repo = new FuncionarioRepository();
+$repository = new FuncionarioRepository();
 
-$f1 = new FuncionarioCLT("Maria Souza");
-$f2 = new FuncionarioPJ("Tech Solutions LTDA");
+$funcionarioCLT = new FuncionarioCLT("Maria Souza", 3500.00);
+$funcionarioPJ = new FuncionarioPJ("Tech Solutions LTDA", 5000.00);
 
-echo $repo->contratar($f1);
-echo $repo->contratar($f2);
+$funcionarios = [$funcionarioCLT, $funcionarioPJ];
 
-echo $repo->demitir($f1);
-echo $repo->demitir($f2);
+foreach ($funcionarios as $funcionario) {
+    echo $repository->contratar($funcionario) . "<br>";
+
+    echo $repository->exibirDados($funcionario) . "<br>";
+
+    echo "Pagamento: R$ " . number_format(
+        $repository->calcularPagamento($funcionario),
+        2,
+        ',',
+        '.'
+    ) . "<br>";
+
+    echo $repository->demitir($funcionario) . "<br><br>";
+}

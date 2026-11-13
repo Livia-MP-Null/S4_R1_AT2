@@ -2,7 +2,13 @@
 
 namespace S4_R1_AT1;
 
-interface FuncionarioInterface {
+interface FuncionarioInterface
+{
     public function contratar(): string;
+
     public function demitir(): string;
+
+    public function getDados(): string;
+
+    public function calcularSalario(): float;
 }

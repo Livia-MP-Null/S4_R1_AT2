@@ -3,15 +3,30 @@
 namespace S4_R1_AT1;
 
 require_once __DIR__ . '/Funcionario.php';
-require_once __DIR__ . '/FuncionarioInterface.php';
 
-class FuncionarioPJ extends Funcionario implements FuncionarioInterface {
-
-    public function contratar(): string {
-        return "Funcionário PJ {$this->nome} contratado via contrato de prestação de serviços.\n";
+class FuncionarioPJ extends Funcionario
+{
+    #[\Override]
+    public function contratar(): string
+    {
+        return "{$this->nome} foi contratado como PJ.";
     }
 
-    public function demitir(): string {
-        return "Contrato PJ de {$this->nome} encerrado.\n";
+    #[\Override]
+    public function demitir(): string
+    {
+        return "O contrato de {$this->nome} foi encerrado.";
+    }
+
+    #[\Override]
+    public function getDados(): string
+    {
+        return "Prestador PJ: {$this->nome}";
+    }
+
+    #[\Override]
+    public function calcularSalario(): float
+    {
+        return $this->valorMensal;
     }
 }
